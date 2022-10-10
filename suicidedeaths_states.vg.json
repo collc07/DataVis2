@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Suicide Deaths in Australia (2020)",
+  "width": 400,
+  "height": 400,
+  "background": "#fffaf6",
+  "projection": {"type": "equirectangular"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/collc07/DataVis2/main/ne_1.topojson",
+        "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/collc07/DataVis2/main/data/suicidestate_2020clean.csv"
+            },
+            "key": "State",
+            "fields": ["Year", "Deaths"]
+          }
+        },
+        {"calculate": "datum.Year", "as": "Year"},
+        {"calculate": "datum.Deaths", "as": "Total Deaths"}
+      ],
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Total Deaths",
+          "type": "quantitative",
+          "scale": {"scheme": "reds"}
+        },
+        "tooltip": [
+          {"field": "Year", "type": "quantitative", "title": "Year"},
+          {"field": "properties.name", "type": "nominal", "title": "State"},
+          {"field": "Total Deaths", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/collc07/DataVis2/main/ne_1.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_ocean"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightblue", "stroke": "white"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/collc07/DataVis2/main/ne_1.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_15"}
+      },
+      "mark": {"type": "geoshape", "fill": null, "stroke": "darkgray"}
+    }
+  ]
+}

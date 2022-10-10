@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+    <link rel="stylesheet" href="layout.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+   
+    <script src="vegalite_vis.js"></script>
+    
+    <style type="text/css">
+        body {
+          width: 950px;
+
+        }
+        </style>
+
+
+</head>
+
+
+<body>
+    <h1>Suicide Deaths in Australia</h1>
+  <!-- SECTION 1: Australia map -->
+      
+    <div class="pure-u-1-1">
+        <div id="text_div">
+            <h1>Suicide Deaths in Australia</h1>
+            <p>The <b>Suicide Deaths in Australia data</b> is a dataset that shows the yearly number 
+              of suicide deaths broken down into various features.
+              <br><br> In the 2020 edition, the Suicide Deaths data looks at various ways the suicide deaths are broken down in 2020 
+              and some trends from 2011-2020, some of the ways the data is broken down are: <b>Suicide Deaths By States</b>, 
+              <b>Indigenous and non-Indigenous Suicide Deaths</b>, <b>External causes of Suicide Deaths</b> and 
+              <b>Mechanisms of Suicide Deaths</b>. 
+              <br><br> This visualisation aims to explore the different perspectives to see what they tell us about Suicide Deaths in 
+              Australia in 2020.
+            </p>
+
+            <p class="aligncenter">
+            </p>
+        </div>
+    </div>
+  
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <div id="text_div">
+                <h2>Suicide Deaths in Australian States and Territory (2020)</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container5">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="choropleth"></div>
+            </div>
+    
+            <div class="pure-u-1-1">
+                <div id="text_div">
+
+                    <p>All States except for <b>Northern Territory</b> had decreased in number of suicides from 2019 to 2020.
+                    <br><br> <b>Queensland</b>, <b>New South Wales</b>, and <b>Victoria </b>had the <span style="color:#ff5d5d"><b>highest</b></span> 
+                    number of suicide deaths so they contributed the most to the suicide deaths in 2020.  
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <!-- SECTION 2: Scatterplot gender by age group -->
+  
+  
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+
+            <h2>The Gender and Age Group breakdown</h2><br>
+            <h3><span style="color:#ff0000">2020</span> had a lower death rate 
+            compared to 2019 despite the effects of the Covid-19 Pandemic.</h3>
+
+        </div>
+      
+    </div>
+  
+  
+    <div class="container2">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="scatterplot"></div> 
+            </div>
+    
+    
+            <div class="pure-u-1-1">
+                <div id="text_div">
+            
+                    <p>Overall, the total number of suicide deaths has <b>increased</b> from 2011 to 2020, more specifically, the <b>20-24 years old </b>age group. However,
+                    there is also an <b>increase in mental health awareness</b> which is a leading cause of suicide deaths throughout schoold and workplaces. The effect of this 
+                    increase in awareness is shown through the decreasing rate of suicide deaths from 2019-2020.
+                    <br><br>Suicide continues to be the leading cause of death for 15-44 year olds and it also accounts for the highest number
+                    of years of potential life lost as a high proportion of suicides occur within the younger age groups.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <!-- SECTION 3: Indigenous -->
+
+  
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+
+            <h2>Indigenous and non-Indigenous Breakdown</h2><br>
+            <h3>Indigenous deaths are <span style="color:#ff0000">highest</span> in Queensland. </h3> <br></div>
+
+        </div>
+      
+    </div>
+  
+    <div class="container3">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="butterfly"></div>
+        
+            </div>
+      
+            <div class="pure-u-1-1">
+                <div id="text_div">
+                    
+                    <p>The number of <span style="font-weight: 900;">Indigenous deaths</span> compared to non-Indigenous deaths is much smaller
+                    due to the different population sizes.
+                    <br><br> In 2020, <b>Queensland</b> has the highest number of Indigenous deaths at 310, 
+                    while <b>New South Wales</b> had the highest number of non-Indigenous deaths at 4161. 
+                    <br><br> Suicide is the second leading cause of death amongst Indigenous males whilst it is the tenth leading cause of death 
+                    amongst non-Indigenous males. It is also the tenth leading cause of deaths amongst Indigenous females compared to it being the 
+                    twenty-second cause of death amongst non-Indigenous females. This is a cause of concern as this means many Indigenous deaths are premature and an increase in effort
+                    towards Indigenous mental health and awareness in needed.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <!-- SECTION 4: External causes -->
+  
+    <div class="container4">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Breakdown by External Causes of Death</h2><br>
+                <h3>Accidental death has the<span style="color:#ff0000"> highest</span> number of deaths under Suicide Deaths.</h3>
+                <div id="stackedbar"></div>
+            </div>
+            
+            <div class="pure-u-1-1">
+                <div id="text_div">
+                    <p>Accidental death is the <span style="color:#ff5d5d"><b>highest</b></span> external cause
+                        of suicide deaths in 2020 with falls and other mechanisms of death making up a major part of this.
+                    </p>
+                </div>
+        
+            </div>
+      
+        </div>
+    </div>
+
+  
+  
+  
+  <!--SECION 5: Mechanism of Death-->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <h2>Breakdown by Mechanism of Death (2011-2020)</h2>
+            <div class="caption"><h3>Poisoning by drugs <span style="color:#ff0000">remains as the highest</span> mechanism of death.</h3></div>
+        </div>
+    </div>
+  
+  
+    <div class="container5">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="bar"></div>
+            </div>
+      
+            <div class="pure-u-1-2">
+                <div id="text_div">
+                    <p>In terms of mechanism of death, <b>Poisoning by drugs</b> remains as the most used method for suicide deaths in Australia.
+                    <br><br> <b>Poisoning by other forms</b> has dropped from being the second leading mechanism of death in 2011 to the fifth leading cause
+                    of death in 2020 behind <b>Other</b>, <b>Firearms</b> and <b>Falls</b>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  </body>
+  
+  </html>

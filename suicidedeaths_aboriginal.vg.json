@@ -1,0 +1,80 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Indigenous and non-Indigenous suicide death proportions (2020)",
+    "background": "#fffaf6",
+    "data": { "url": "https://raw.githubusercontent.com/collc07/DataVis2/main/data/suicideaboriginalandtorresstrait_butterflyclean.csv"},
+    "transform": [
+        {"calculate": "datum.IndigenousStatus == 'Non-Indigenous' ? 'Non-Indigenous' : 'Aboriginal and Torres Strait Islanders'", "as": "IndigenousStatus"}
+    ],
+    "spacing": 0,
+    "hconcat": [{
+      "transform": [{
+        "filter": {"field": "IndigenousStatus", "equal": "Non-Indigenous"}
+      }],
+      "title": "Non-Indigenous",
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "State", "axis": null, "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum", "field": "Deaths",
+          "title": "Deaths",
+          "axis": {"format": "s"},
+          "sort": "descending",
+          "scale": {"domain": [0, 4200]}
+        },
+        "color": {
+          "field": "IndigenousStatus",
+          "scale": {"range": ["#675193", "#ca8861"]},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Deaths", "type": "quantitative", "title": "Total non-Indigenous Deaths"}
+        ]
+      }
+    }, 
+    {
+      "width": 20,
+      "view": {"stroke": null},
+      "mark": {
+        "type": "text",
+        "align": "center"
+      },
+      "encoding": {
+        "y": {"field": "State", "type": "nominal", "axis": null, "sort": "descending"},
+        "text": {"field": "State", "type": "nominal"}
+      }
+    }, {
+      "transform": [{
+        "filter": {"field": "IndigenousStatus", "equal": "Aboriginal and Torres Strait Islanders"}
+      }],
+      "title": "Aboriginal and Torres Strait Islanders",
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "State", "title": null,
+          "axis": null, "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum", "field": "Deaths",
+          "title": "Deaths",
+          "axis": {"format": "s"},
+          "scale": {"domain": [0, 4200]}
+        },
+        "color": {
+          "field": "IndigenousStatus",
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Deaths", "type": "quantitative", "title": "Total Indigenous Deaths"}
+        ]
+      }
+    }],
+    "config": {
+      "view": {"stroke": null},
+      "axis": {"grid": false}
+    }
+  }
