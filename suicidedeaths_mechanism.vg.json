@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 350,
+    "height": 350,
+    "background": "#fffaf6",
+    "title": "Mechanisms of Death (2011-2020)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/collc07/DataVis2/main/data/suicidemechanism_barclean.csv"
+    },
+    "params": [
+        {
+          "name": "Chosen_year",
+          "value": 2020,
+          "bind": {
+            "input": "range",
+            "min": 2011,
+            "max": 2020,
+            "step": 1,
+            "name": "Year: "
+          }
+        }
+      ],
+    "transform": [
+        {"filter": "datum.Year == Chosen_year"}
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "Mechanism", "type": "nominal", "axis": {"labelAngle": 60}},
+      "y": {"field": "Deaths", "type": "quantitative"},
+      "color": {
+        "field": "Mechanism",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Poisoning by drugs", "Poisoning by other", "Firearms", "Falls", "Contact with sharp object", "Other", "Drowning and submersion"],
+          "range": ["#D87F81", "#EAB595", "#AE6378", "#FE676E", "#DE5B6D", "#CCABD8","#E79796"]
+        },
+        "legend": null
+      },
+      "tooltip": [
+        {"field": "Mechanism", "type": "nominal", "title": "Mechanism of Death"},
+        {"field": "Deaths", "type": "quantitative", "title": "Number of Deaths"}
+      ]
+    }
+}
