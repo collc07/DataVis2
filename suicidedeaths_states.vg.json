@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Suicide Deaths in Australia (2020)",
+  "title": "Suicide Deaths in Australia (2011-2020)",
   "width": 700,
   "height": 500,
   "background": "#fffaf6",
